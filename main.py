@@ -172,7 +172,7 @@ while(True):
 
     dot_graph(num, width_dot, height_dot)
     
-    print("\n\n\n")
+    print("\n\n")
 
     bar_graph(num, width_bar, height_bar)
 
