@@ -1,28 +1,38 @@
 import math
 import os
 import time
+import keyboard
 
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+
 def dot_graph():
 
-    plot = True
-    while(plot):
+    while(True):
         clear_console()
         print("...")
 
+        if keyboard.is_pressed('q'):
+            clear_console()
+            break
+
+        time.sleep(1)
 
 
 def bar_graph():
 
-    plot = True
-    while(plot):
+    while(True):
         clear_console()
         print("[]")
 
+        if keyboard.is_pressed('q'):
+            clear_console()
+            break
+
+        time.sleep(1)
 
 run = True
 
@@ -31,10 +41,10 @@ print("Sine Graph Plotter")
 
 while(run):
 
-    print("\n press \'q\' to return back to the main menu once the plotting has started")
+    print("\nPress \'q\' to return back to the main menu once the plotting has started")
     
-    print("\n1. Dot Graph\n 2. Bar Graph 3. Exit")
-    graph_type = input(": ")
+    print("\n1. Dot Graph\n2. Bar Graph\n3. Exit")
+    graph_type = int(input(": "))
 
     if graph_type == 1:
         dot_graph();
