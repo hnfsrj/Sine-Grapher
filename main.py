@@ -146,7 +146,7 @@ def bar_graph(num, width, height):
     
     #generating the empty grid
     grid_bar = base_figure(width, height)
-    
+
     plot_points_bar(num, grid_bar, width, height)
     print_grid(grid_bar)
 
@@ -167,10 +167,12 @@ while(True):
     clear_console()
 
     print("Sine Graph Plotter")
-    print("\nPress \'ctrl+c\' to exit")
+    print("\nPress \'ctrl+c\' to exit\n\n")
 
 
     dot_graph(num, width_dot, height_dot)
+    
+    print("\n\n\n")
 
     bar_graph(num, width_bar, height_bar)
 
