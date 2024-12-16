@@ -81,7 +81,7 @@ def plot_points_dot(num, grid, width, height):
         else:
             grid[y][i+1] = point
 
-
+    return grid
 
 
 
@@ -109,7 +109,8 @@ def plot_points_bar(num, grid, width, height):
                     current_y+=1
                 elif current_y == (height-1)/2:
                     break
-
+    
+    return grid
 
 
 
@@ -135,8 +136,8 @@ def dot_graph(num, width, height):
     #generating the empty grid
     grid_dot = base_figure(width, height)
 
-    plot_points_dot(num, grid_dot, width, height)
-    print_grid(grid_dot)
+    return plot_points_dot(num, grid_dot, width, height)
+    # print_grid(grid_dot)
 
 
 
@@ -147,19 +148,33 @@ def bar_graph(num, width, height):
     #generating the empty grid
     grid_bar = base_figure(width, height)
 
-    plot_points_bar(num, grid_bar, width, height)
-    print_grid(grid_bar)
+    return plot_points_bar(num, grid_bar, width, height)
+    # print_grid(grid_bar)
 
 
 
-    
+
+
+
+def combine_graphs(grid_dot, grid_bar, height):
+
+    spacing = 5
+
+    master_grid = [(grid_dot[i] + [" " for _ in range(spacing)] + grid_bar[i]) for i in range(height)]
+
+    return master_grid
+
+
+
+
+
 
 #width and height of the graph
 width_dot = 25
-height_dot = 13
-
 width_bar = 17
-height_bar = 13
+
+
+height = 13
 
     
 num = 0
@@ -170,11 +185,16 @@ while(True):
     print("\nPress \'ctrl+c\' to exit\n\n")
 
 
-    dot_graph(num, width_dot, height_dot)
+    dg = dot_graph(num, width_dot, height)
     
-    print("\n\n")
+    # print("\n\n")
 
-    bar_graph(num, width_bar, height_bar)
+    bg = bar_graph(num, width_bar, height)
+
+    cg = combine_graphs(dg, bg, height)
+
+    print_grid(cg)
+
 
     num+=1
     time.sleep(1)
